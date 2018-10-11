@@ -140,9 +140,6 @@
 	statemachine 	(object State_Machine "State/Activity Model"
 	    quid       	"5BBF09800016"
 	    states     	(list States
-		(object State "NewState"
-		    quid       	"5BBF09E6024A"
-		    type       	"Normal")
 		(object ActivityState "登录"
 		    quid       	"5BBF09ED004A")
 		(object ActivityState "验证"
@@ -150,12 +147,7 @@
 		(object Decision "是否通过"
 		    quid       	"5BBF0A8F01BC")
 		(object ActivityState "生成token"
-		    quid       	"5BBF0ABA01CE")
-		(object ActivityState "NewActivity2"
-		    quid       	"5BBF0AC701C8")
-		(object State "NewState2"
-		    quid       	"5BBF0B1C00C4"
-		    type       	"Normal"))
+		    quid       	"5BBF0ABA01CE"))
 	    partitions 	(list Partitions
 		(object Partition "用户"
 		    quid       	"5BBF09AB033B"
@@ -202,9 +194,9 @@
 			quid       	"5BBF0AD30117")))
 	    objectflows 	(list objectflow_list)
 	    statediagrams 	(list StateDiagrams
-		(object ActivityDiagram "NewDiagram"
+		(object ActivityDiagram "活动图"
 		    quid       	"5BBF0980001A"
-		    title      	"NewDiagram"
+		    title      	"活动图"
 		    zoom       	100
 		    max_height 	28350
 		    max_width  	21600
@@ -711,12 +703,12 @@
 	subsystem  	"Component View"
 	quidu      	"5BBEC01403B6"
 	logical_models 	(list unit_reference_list
-	    (object Class "person"
+	    (object Class "人员"
 		quid       	"5BBEC3CA039E"
 		superclasses 	(list inheritance_relationship_list
 		    (object Inheritance_Relationship
 			quid       	"5BBEFD230147"
-			supplier   	"Logical View::org"
+			supplier   	"Logical View::组织"
 			quidu      	"5BBEFBEF0306"))
 		class_attributes 	(list class_attribute_list
 		    (object ClassAttribute "name"
@@ -735,7 +727,7 @@
 			quid       	"5BBEFC24000F"
 			type       	"Integer"
 			exportControl 	"Public")))
-	    (object Class "org"
+	    (object Class "组织"
 		quid       	"5BBEFBEF0306"
 		class_attributes 	(list class_attribute_list
 		    (object ClassAttribute "id"
@@ -750,17 +742,17 @@
 			quid       	"5BBEFC10038A"
 			type       	"String"
 			exportControl 	"Public")))
-	    (object Association "$UNNAMED$6"
+	    (object Association "用户组织"
 		quid       	"5BBEFD0B0382"
 		roles      	(list role_list
-		    (object Role "$UNNAMED$7"
+		    (object Role "$UNNAMED$6"
 			quid       	"5BBEFD0E00EA"
-			supplier   	"Logical View::org"
+			supplier   	"Logical View::组织"
 			quidu      	"5BBEFBEF0306"
 			is_navigable 	TRUE)
-		    (object Role "$UNNAMED$8"
+		    (object Role "$UNNAMED$7"
 			quid       	"5BBEFD0E00EE"
-			supplier   	"Logical View::person"
+			supplier   	"Logical View::人员"
 			quidu      	"5BBEC3CA039E")))
 	    (object Association "属于"
 		quid       	"5BBEFD39016F"
@@ -768,14 +760,14 @@
 		    (object Role "组织"
 			quid       	"5BBEFD3D03B7"
 			label      	"组织"
-			supplier   	"Logical View::org"
+			supplier   	"Logical View::组织"
 			quidu      	"5BBEFBEF0306"
 			client_cardinality 	(value cardinality "1")
 			is_navigable 	TRUE)
 		    (object Role "人员"
 			quid       	"5BBEFD3D03BD"
 			label      	"人员"
-			supplier   	"Logical View::person"
+			supplier   	"Logical View::人员"
 			quidu      	"5BBEC3CA039E"
 			client_cardinality 	(value cardinality "1..*")))))
 	logical_presentations 	(list unit_reference_list
@@ -797,7 +789,7 @@
 		origin_x   	0
 		origin_y   	0
 		items      	(list diagram_item_list
-		    (object ClassView "Class" "Logical View::org" @30
+		    (object ClassView "Class" "Logical View::组织" @30
 			ShowCompartmentStereotypes 	TRUE
 			IncludeAttribute 	TRUE
 			IncludeOperation 	TRUE
@@ -818,7 +810,7 @@
 			    nlines     	1
 			    max_width  	330
 			    justify    	0
-			    label      	"org")
+			    label      	"组织")
 			icon_style 	"Icon"
 			line_color 	3342489
 			fill_color 	13434879
@@ -839,13 +831,13 @@
 			    fill_color 	13434879
 			    anchor     	2
 			    nlines     	4
-			    max_width  	346
+			    max_width  	328
 			    justify    	1)
 			width      	348
 			height     	286
 			annotation 	8
 			autoResize 	TRUE)
-		    (object ClassView "Class" "Logical View::person" @31
+		    (object ClassView "Class" "Logical View::人员" @31
 			ShowCompartmentStereotypes 	TRUE
 			IncludeAttribute 	TRUE
 			IncludeOperation 	TRUE
@@ -866,7 +858,7 @@
 			    nlines     	1
 			    max_width  	312
 			    justify    	0
-			    label      	"person")
+			    label      	"人员")
 			icon_style 	"Icon"
 			line_color 	3342489
 			fill_color 	13434879
@@ -887,7 +879,7 @@
 			    fill_color 	13434879
 			    anchor     	2
 			    nlines     	5
-			    max_width  	328
+			    max_width  	309
 			    justify    	1)
 			width      	330
 			height     	336
