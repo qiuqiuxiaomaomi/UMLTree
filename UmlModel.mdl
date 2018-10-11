@@ -61,15 +61,71 @@
 	logical_models 	(list unit_reference_list
 	    (object Class "person"
 		quid       	"5BBEC3CA039E"
+		superclasses 	(list inheritance_relationship_list
+		    (object Inheritance_Relationship
+			quid       	"5BBEFD230147"
+			supplier   	"Logical View::org"
+			quidu      	"5BBEFBEF0306"))
 		class_attributes 	(list class_attribute_list
 		    (object ClassAttribute "name"
 			quid       	"5BBEC3FC00D6"
-			type       	"Integer"
+			type       	"String"
 			exportControl 	"Public")
 		    (object ClassAttribute "sex"
 			quid       	"5BBEC6CD010E"
 			type       	"Integer"
-			exportControl 	"Public"))))
+			exportControl 	"Public")
+		    (object ClassAttribute "id"
+			quid       	"5BBEFC1E0016"
+			type       	"Integer"
+			exportControl 	"Public")
+		    (object ClassAttribute "org_id"
+			quid       	"5BBEFC24000F"
+			type       	"Integer"
+			exportControl 	"Public")))
+	    (object Class "org"
+		quid       	"5BBEFBEF0306"
+		class_attributes 	(list class_attribute_list
+		    (object ClassAttribute "id"
+			quid       	"5BBEFBFD02B4"
+			type       	"Integer"
+			exportControl 	"Public")
+		    (object ClassAttribute "name"
+			quid       	"5BBEFC060277"
+			type       	"String"
+			exportControl 	"Public")
+		    (object ClassAttribute "address"
+			quid       	"5BBEFC10038A"
+			type       	"String"
+			exportControl 	"Public")))
+	    (object Association "$UNNAMED$0"
+		quid       	"5BBEFD0B0382"
+		roles      	(list role_list
+		    (object Role "$UNNAMED$1"
+			quid       	"5BBEFD0E00EA"
+			supplier   	"Logical View::org"
+			quidu      	"5BBEFBEF0306"
+			is_navigable 	TRUE)
+		    (object Role "$UNNAMED$2"
+			quid       	"5BBEFD0E00EE"
+			supplier   	"Logical View::person"
+			quidu      	"5BBEC3CA039E")))
+	    (object Association "属于"
+		quid       	"5BBEFD39016F"
+		roles      	(list role_list
+		    (object Role "组织"
+			quid       	"5BBEFD3D03B7"
+			label      	"组织"
+			supplier   	"Logical View::org"
+			quidu      	"5BBEFBEF0306"
+			client_cardinality 	(value cardinality "1")
+			is_navigable 	TRUE)
+		    (object Role "人员"
+			quid       	"5BBEFD3D03BD"
+			label      	"人员"
+			supplier   	"Logical View::person"
+			quidu      	"5BBEC3CA039E"
+			client_cardinality 	(value cardinality "1..*")))))
 	logical_presentations 	(list unit_reference_list
 	    (object ClassDiagram "Main"
 		quid       	"5BBEC01403BB"
@@ -93,7 +149,7 @@
 			ShowCompartmentStereotypes 	TRUE
 			IncludeAttribute 	TRUE
 			IncludeOperation 	TRUE
-			location   	(270, 120)
+			location   	(330, 478)
 			font       	(object Font
 			    size       	10
 			    face       	"Arial"
@@ -105,10 +161,10 @@
 			    default_color 	TRUE)
 			label      	(object ItemLabel
 			    Parent_View 	@1
-			    location   	(119, 14)
+			    location   	(174, 322)
 			    fill_color 	13434879
 			    nlines     	1
-			    max_width  	302
+			    max_width  	312
 			    justify    	0
 			    label      	"person")
 			icon_style 	"Icon"
@@ -117,7 +173,7 @@
 			quidu      	"5BBEC3CA039E"
 			compartment 	(object Compartment
 			    Parent_View 	@1
-			    location   	(119, 75)
+			    location   	(174, 383)
 			    font       	(object Font
 				size       	10
 				face       	"Arial"
@@ -130,13 +186,223 @@
 			    icon_style 	"Icon"
 			    fill_color 	13434879
 			    anchor     	2
-			    nlines     	3
-			    max_width  	300
+			    nlines     	5
+			    max_width  	328
 			    justify    	1)
-			width      	320
-			height     	236
+			width      	330
+			height     	336
 			annotation 	8
-			autoResize 	TRUE)))))
+			autoResize 	TRUE)
+		    (object ClassView "Class" "Logical View::org" @2
+			ShowCompartmentStereotypes 	TRUE
+			IncludeAttribute 	TRUE
+			IncludeOperation 	TRUE
+			location   	(1392, 472)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			label      	(object ItemLabel
+			    Parent_View 	@2
+			    location   	(1227, 341)
+			    fill_color 	13434879
+			    nlines     	1
+			    max_width  	330
+			    justify    	0
+			    label      	"org")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"5BBEFBEF0306"
+			compartment 	(object Compartment
+			    Parent_View 	@2
+			    location   	(1227, 402)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    icon_style 	"Icon"
+			    fill_color 	13434879
+			    anchor     	2
+			    nlines     	4
+			    max_width  	346
+			    justify    	1)
+			width      	348
+			height     	286
+			annotation 	8
+			autoResize 	TRUE)
+		    (object AssociationViewNew "属于" @3
+			location   	(856, 474)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			label      	(object SegLabel @4
+			    Parent_View 	@3
+			    location   	(856, 415)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				bold       	FALSE
+				italics    	TRUE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    anchor     	1
+			    anchor_loc 	1
+			    nlines     	1
+			    max_width  	450
+			    justify    	0
+			    label      	"属于"
+			    pctDist    	0.500000
+			    height     	60
+			    orientation 	0)
+			stereotype 	TRUE
+			line_color 	3342489
+			quidu      	"5BBEFD39016F"
+			roleview_list 	(list RoleViews
+			    (object RoleView "组织" @5
+				Parent_View 	@3
+				location   	(526, -4)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				label      	(object SegLabel @6
+				    Parent_View 	@5
+				    location   	(1145, 431)
+				    font       	(object Font
+					size       	10
+					face       	"Arial"
+					bold       	FALSE
+					italics    	FALSE
+					underline  	FALSE
+					strike     	FALSE
+					color      	0
+					default_color 	TRUE)
+				    anchor     	1
+				    anchor_loc 	1
+				    nlines     	1
+				    max_width  	141
+				    justify    	0
+				    label      	"+组织"
+				    pctDist    	0.800000
+				    height     	42
+				    orientation 	0)
+				stereotype 	TRUE
+				line_color 	3342489
+				quidu      	"5BBEFD3D03B7"
+				client     	@3
+				supplier   	@2
+				vertices   	(list Points
+				    (856, 474)
+				    (1217, 472))
+				line_style 	0
+				label      	(object SegLabel @7
+				    Parent_View 	@5
+				    location   	(1181, 526)
+				    font       	(object Font
+					size       	10
+					face       	"Arial"
+					bold       	FALSE
+					italics    	FALSE
+					underline  	FALSE
+					strike     	FALSE
+					color      	0
+					default_color 	TRUE)
+				    anchor     	2
+				    anchor_loc 	1
+				    nlines     	1
+				    max_width  	15
+				    justify    	0
+				    label      	"1"
+				    pctDist    	0.900000
+				    height     	54
+				    orientation 	1))
+			    (object RoleView "人员" @8
+				Parent_View 	@3
+				location   	(526, -4)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				label      	(object SegLabel @9
+				    Parent_View 	@8
+				    location   	(567, 435)
+				    font       	(object Font
+					size       	10
+					face       	"Arial"
+					bold       	FALSE
+					italics    	FALSE
+					underline  	FALSE
+					strike     	FALSE
+					color      	0
+					default_color 	TRUE)
+				    anchor     	1
+				    anchor_loc 	1
+				    nlines     	1
+				    max_width  	141
+				    justify    	0
+				    label      	"+人员"
+				    pctDist    	0.800000
+				    height     	42
+				    orientation 	1)
+				stereotype 	TRUE
+				line_color 	3342489
+				quidu      	"5BBEFD3D03BD"
+				client     	@3
+				supplier   	@1
+				vertices   	(list Points
+				    (856, 474)
+				    (495, 476))
+				line_style 	0
+				label      	(object SegLabel @10
+				    Parent_View 	@8
+				    location   	(531, 530)
+				    font       	(object Font
+					size       	10
+					face       	"Arial"
+					bold       	FALSE
+					italics    	FALSE
+					underline  	FALSE
+					strike     	FALSE
+					color      	0
+					default_color 	TRUE)
+				    anchor     	2
+				    anchor_loc 	1
+				    nlines     	1
+				    max_width  	15
+				    justify    	0
+				    label      	"1..*"
+				    pctDist    	0.900000
+				    height     	54
+				    orientation 	0))))))))
     root_subsystem 	(object SubSystem "Component View"
 	quid       	"5BBEC01403B6"
 	physical_models 	(list unit_reference_list)
